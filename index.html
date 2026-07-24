@@ -1,105 +1,24 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>إلى رفيف ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى رفيف ❤️</title>
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-background:linear-gradient(135deg,#0f172a,#1e293b,#3b0764);
-height:100vh;
-overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
-font-family:Tahoma,sans-serif;
-color:white;
-}
-
-.container{
-text-align:center;
-z-index:2;
-}
-
-h1{
-font-size:45px;
-margin-bottom:15px;
-animation:fade 2s;
-}
-
-p{
-font-size:28px;
-animation:fade 4s;
-}
-
-.heart{
-font-size:100px;
-animation:beat 1s infinite;
-}
-
-@keyframes beat{
-0%{transform:scale(1);}
-50%{transform:scale(1.2);}
-100%{transform:scale(1);}
-}
-
-@keyframes fade{
-from{opacity:0;}
-to{opacity:1;}
-}
-
-.rose{
-position:absolute;
-top:-50px;
-font-size:30px;
-animation:fall linear infinite;
-}
-
-@keyframes fall{
-to{
-transform:translateY(110vh) rotate(360deg);
-}
-}
-</style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
-<div class="heart">❤️</div>
-<h1>إلى رفيف</h1>
-<p>سأظل أحبك للأبد 🌹</p>
-</div>
+    <div class="container">
+        <div class="heart">❤️</div>
+        <h1>إلى رفيف</h1>
+        <p>سأظل أحبك للأبد 🌹</p>
+    </div>
 
-<script>
-
-for(let i=0;i<40;i++){
-
-let r=document.createElement("div");
-
-r.className="rose";
-
-r.innerHTML="🌹";
-
-r.style.left=Math.random()*100+"vw";
-
-r.style.animationDuration=5+Math.random()*5+"s";
-
-r.style.fontSize=20+Math.random()*25+"px";
-
-document.body.appendChild(r);
-
-}
-
-</script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
