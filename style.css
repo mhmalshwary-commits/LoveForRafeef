@@ -1,48 +1,76 @@
-const text = `إلى رفيف ❤️
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-حا نكون دائماً سند لك،
-مثل الأب والأخ والزوج.
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#0f172a,#312e81,#4c1d95);
+font-family:Tahoma,sans-serif;
+overflow:hidden;
+}
 
-سأضل بجانبك،
-وسأستمر في حبك ما حييت. 🌹❤️`;
+.container{
+text-align:center;
+color:white;
+}
 
-const msg = document.getElementById("message");
-const envelope = document.getElementById("envelope");
+h1{
+margin-bottom:20px;
+}
 
-envelope.onclick = () => {
+.envelope{
+width:300px;
+height:190px;
+background:#e7c79f;
+position:relative;
+margin:auto;
+cursor:pointer;
+border-radius:8px;
+box-shadow:0 15px 30px rgba(0,0,0,.4);
+}
 
-    document.querySelector(".top").style.transform = "rotateX(180deg)";
-    document.querySelector(".letter").style.transform = "translateY(-70px)";
+.flap{
+position:absolute;
+top:0;
+left:0;
+width:0;
+height:0;
+border-left:150px solid transparent;
+border-right:150px solid transparent;
+border-top:100px solid #d8b07d;
+transform-origin:top;
+transition:1s;
+}
 
-    let i = 0;
+.letter{
+position:absolute;
+left:15px;
+top:20px;
+width:270px;
+height:160px;
+background:white;
+border-radius:8px;
+padding:15px;
+transform:translateY(110px);
+transition:1s;
+overflow:auto;
+color:#222;
+}
 
-    function type() {
-        if (i < text.length) {
-            msg.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, 45);
-        }
-    }
+.open .flap{
+transform:rotateX(180deg);
+}
 
-    msg.innerHTML = "";
-    type();
+.open .letter{
+transform:translateY(-60px);
+}
 
-    for (let j = 0; j < 40; j++) {
-        let rose = document.createElement("div");
-
-        rose.innerHTML = "🌹";
-        rose.style.position = "fixed";
-        rose.style.left = Math.random() * 100 + "vw";
-        rose.style.top = "-50px";
-        rose.style.fontSize = "30px";
-        rose.style.transition = "8s linear";
-
-        document.body.appendChild(rose);
-
-        setTimeout(() => {
-            rose.style.top = "110vh";
-        }, 50);
-
-        setTimeout(() => rose.remove(), 8000);
-    }
-};
+p{
+margin-top:20px;
+font-size:20px;
+}
