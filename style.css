@@ -1,57 +1,48 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+const text = `إلى رفيف ❤️
 
-body{
-    background:linear-gradient(135deg,#0f172a,#1e293b,#3b0764);
-    min-height:100vh;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family:Tahoma,sans-serif;
-    color:white;
-}
+حا نكون دائماً سند لك،
+مثل الأب والأخ والزوج.
 
-.container{
-    text-align:center;
-    z-index:2;
-    padding:20px;
-}
+سأضل بجانبك،
+وسأستمر في حبك ما حييت. 🌹❤️`;
 
-.heart{
-    font-size:100px;
-    animation:beat 1.2s infinite;
-    filter:drop-shadow(0 0 20px #ff3b7d);
-}
+const msg = document.getElementById("message");
+const envelope = document.getElementById("envelope");
 
-h1{
-    font-size:48px;
-    margin:20px 0 10px;
-}
+envelope.onclick = () => {
 
-p{
-    font-size:28px;
-    color:#ffd6e7;
-}
+    document.querySelector(".top").style.transform = "rotateX(180deg)";
+    document.querySelector(".letter").style.transform = "translateY(-70px)";
 
-@keyframes beat{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.18);}
-    100%{transform:scale(1);}
-}
+    let i = 0;
 
-.rose{
-    position:absolute;
-    top:-60px;
-    font-size:30px;
-    animation:fall linear infinite;
-}
-
-@keyframes fall{
-    to{
-        transform:translateY(110vh) rotate(360deg);
+    function type() {
+        if (i < text.length) {
+            msg.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, 45);
+        }
     }
-}
+
+    msg.innerHTML = "";
+    type();
+
+    for (let j = 0; j < 40; j++) {
+        let rose = document.createElement("div");
+
+        rose.innerHTML = "🌹";
+        rose.style.position = "fixed";
+        rose.style.left = Math.random() * 100 + "vw";
+        rose.style.top = "-50px";
+        rose.style.fontSize = "30px";
+        rose.style.transition = "8s linear";
+
+        document.body.appendChild(rose);
+
+        setTimeout(() => {
+            rose.style.top = "110vh";
+        }, 50);
+
+        setTimeout(() => rose.remove(), 8000);
+    }
+};
